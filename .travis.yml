@@ -1,8 +1,8 @@
-language: ruby
-rvm:
-  - 2.7.6
-  
 sudo: required
+
+language: node_js
+node_js:
+  - "12"
 
 services:
   - docker
@@ -13,8 +13,3 @@ before_install:
 script:
   - docker run -e CI=true amir/docker-react npm run test -- --coverage
 
-# Add empty install step to bypass default bundle install
-install: true
-
-# Add empty before_script step to ensure no default actions are performed
-before_script: []
